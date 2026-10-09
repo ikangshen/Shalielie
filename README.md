@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-Current version: v0.6.2
+Current version: v0.6.3
 
 This is an experimental tool that takes a HEIC from an iPhone **older than the iPhone 16**
 (iPhone 15, 14, 13 … — any model whose photos match a supported tile layout) and adds the
@@ -193,9 +193,9 @@ device — is documented in **[facts.md](facts.md)**.
 - **The look after editing is not identical to a native photo.** The port uses neutral defaults
   where Apple's capture-time values cannot be reproduced, and a few values still come from the
   donor profile. More native samples are needed.
-- **Supported sizes: 12 MP, 24 MP and front-camera photos**, in any tile layout. The style data
-  is added to the photo's own file structure, which needs the size of the style's delta map;
-  48 MP photos (and any other size) fall back to the two built-in layouts (48/12 and 45/15).
+- **Supported sizes: 12 MP, 24 MP, 48 MP and front-camera photos**, in any tile layout. The
+  style data is added to the photo's own file structure, which needs the size of the style's
+  delta map; any other size falls back to the two built-in layouts (48/12 and 45/15).
 - **Photos without an embedded thumbnail** need the default (encoder) mode, not the browser or
   no-encoder mode.
 - **Texture/Grain needs iOS 27** on the phone that opens the photo.
@@ -260,6 +260,7 @@ thumbnail differently. Only the no-encoder mode is reproducible byte for byte, a
 | v0.6.0      | Soft Skin from the photo's face regions and mattes; Windows drag and drop    | Soft Skin ✅ (needs all four parts, phone A/B); no-people output unchanged ☑️ |
 | v0.6.1      | Exactly empty frames in unfilled matte slots; per-photo`FilmGrainSeed`     | Two donor-derived values gone; palette, styles, people and Soft Skin unchanged ✅ |
 | v0.6.2      | Style items added to the photo's own item graph; 90°/270° rotation fixed      | Any tile layout of a known size; re-saved photos without thumbnail/`tmap`; sky/foliage glow on 270° photos gone ✅ |
+| v0.6.3      | 48 MP photos (8064×6048) on the photo's own item graph                       | 48 MP photos from older iPhones port, with and without an encoder ✅ |
 
 **Reverse-engineering tests of key assumptions**
 

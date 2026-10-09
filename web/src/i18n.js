@@ -49,9 +49,10 @@ export const STRINGS = {
     "h.notice": "Before you start",
     "n.1": "Experimental, unofficial software, not affiliated with Apple.",
     "n.2": "An Apple HEIC holds only the still image. Keep your original photos.",
+    "n.3": "This page runs entirely in your browser: photos are processed on this device and "
+      + "never uploaded.",
     "app.lede": "Adds the Photographic Styles palette, introduced with iPhone 16, to HEIC "
-      + "photos from earlier iPhones, plus the Texture and Grain controls on iOS 27. "
-      + "Everything runs on this device; photos are never uploaded.",
+      + "photos from earlier iPhones, plus the Texture and Grain controls on iOS 27.",
     "drop.big": "Choose HEIC photos, or drop them here",
     "drop.small": "Original HEIC photos from iPhone · processed on this device",
     "tip.title": "Choosing from Photo Library",
@@ -134,8 +135,9 @@ export const STRINGS = {
     "h.notice": "注意事项",
     "n.1": "实验性非官方工具，与 Apple 无关。",
     "n.2": "Apple 的 HEIC 文件只包含静态图像，请保留原图。",
+    "n.3": "网页版为纯前端，照片处理在本设备上完成，照片不会上传。",
     "app.lede": "为 iPhone 16 之前机型拍摄的 HEIC 照片加上 iPhone 16 引入的摄影风格调色板，"
-      + "并在 iOS 27 上加上质感与颗粒控制。全部处理都在本设备上完成，照片不会上传。",
+      + "并在 iOS 27 上加上质感与颗粒控制。",
     "drop.big": "选取 HEIC 照片，或拖放到此处",
     "drop.small": "iPhone 拍摄的 HEIC 原图 · 在本设备上处理",
     "tip.title": "从“照片图库”选取时",

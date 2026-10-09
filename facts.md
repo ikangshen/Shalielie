@@ -69,7 +69,7 @@ understood or not yet in its final form.
 | Ordinary thumbnail | The photo's own, or encoded from the primary if missing | Photo's own / map | ✅ | – |
 | Exif, Make/Model unchanged | The photo's own | Photo's own | ✅ | – |
 | Orientation `irot` / `imir` | The photo's own | Photo's own | ✅ | – |
-| Item graph (IDs, `iref`, `ipma`, `ipco`, grids) | The photo's own, plus the style items (v0.6.2, §3); donor template only for sizes without a known StyleDeltaMap | Photo's own / format | ✅ | 48 MP photos (640-pixel delta tiles) not handled |
+| Item graph (IDs, `iref`, `ipma`, `ipco`, grids) | The photo's own, plus the style items (v0.6.2, §3); donor template only for sizes without a known StyleDeltaMap | Photo's own / format | ✅ | 48 MP (v0.6.3) uses 512-pixel tiles where natives use 640×896; phone-tested |
 | `mdat` and `iloc` offsets | Rebuilt | Format | ✅ | – |
 
 **Style palette**
@@ -210,9 +210,12 @@ Sorted by the five kinds in §1. The donor row is the open issue in §8.
 | 4032×3024 (12 MP) | 2880×2160 | 6×5 |
 | 5712×4284 (24 MP) | 4096×3072 | 8×6 |
 | 3088×2316 (front) | 2240×1680 | 5×4 |
+| 8064×6048 (48 MP) | 5760×4320 | 12×9 |
 | portrait-stored | the same, swapped | |
 
-8064×6048 (48 MP) natives use 640-pixel delta tiles and are not handled yet.
+8064×6048 (48 MP) natives tile the same 5760×4320 map 9×5 with 640×896 tiles. The port uses
+12×9 of its 512×512 neutral tile instead (the grid trims the excess, as for the other sizes);
+Photos accepts it: phone-tested in v0.6.3 with and without an encoder.
 
 **Phone A/B** (v0.6.2): 48/12 photos with and without an encoder, a Portrait photo with a face
 (Portrait, people layers, Soft Skin), and 24 MP / 12 MP re-saved photos without thumbnail or

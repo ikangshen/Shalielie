@@ -109,7 +109,7 @@ import zlib
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 
-VERSION = "0.6.2"
+VERSION = "0.6.3"
 
 URI_HDR_GAIN = "urn:com:apple:photo:2020:aux:hdrgainmap"
 URI_LINEAR_THUMB = "tag:apple.com,2023:photo:aux:linearthumbnail"
@@ -295,8 +295,10 @@ STYLE_DELTA_COLR = base64.b64decode(   # ICC "Display P3 Linear", prof
 STYLE_BRANDS = (b"MiHA", b"heix")   # added after MiHB, as in every native style file
 # StyleDeltaMap size per primary size (stored orientation), as native files have it. Tiles
 # are 512x512; the grid covers the map with ceil(w/512) x ceil(h/512) of them.
+# 48 MP natives tile their 5760x4320 map 640x896; 512x512 tiles trimmed by the grid cover it
+# equally, and reuse the one neutral tile.
 STYLE_DELTA_SIZES = {(4032, 3024): (2880, 2160), (5712, 4284): (4096, 3072),
-                     (3088, 2316): (2240, 1680)}
+                     (3088, 2316): (2240, 1680), (8064, 6048): (5760, 4320)}
 STYLE_LINEAR_THUMB = (1024, 768)
 
 # Built-in, phone-validated v0.2 donor profiles. These are complete normalized

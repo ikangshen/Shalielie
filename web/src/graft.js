@@ -43,7 +43,10 @@ const STYLE_DELTA_COLR = b64(
   + "AAAAAAAAAAAAAQAAc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeTAAD9kP//+6L///2jAAAD3AAAwG5jaWNwAAAA"
   + "AAwIAAE=");
 const STYLE_BRANDS = ["MiHA", "heix"];
-const STYLE_DELTA_SIZES = [[4032, 3024, 2880, 2160], [5712, 4284, 4096, 3072], [3088, 2316, 2240, 1680]];
+// 48 MP natives tile their 5760x4320 map 640x896; 512x512 tiles trimmed by the grid cover it
+// equally, and reuse the one neutral tile.
+const STYLE_DELTA_SIZES = [[4032, 3024, 2880, 2160], [5712, 4284, 4096, 3072], [3088, 2316, 2240, 1680],
+                           [8064, 6048, 5760, 4320]];
 const STYLE_LINEAR_THUMB = [1024, 768];
 
 const same = (a, b) => !!a && !!b && a.length === b.length && a.every((v, i) => v === b[i]);
