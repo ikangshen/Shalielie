@@ -1,0 +1,11 @@
+{
+  "name": "shalielie-private",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-09",
+  "workers_dev": true,
+  "assets": {
+    "directory": "../web/profiles",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  }
+}
