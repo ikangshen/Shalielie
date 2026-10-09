@@ -18,6 +18,8 @@ const PAGES = [
   { src: "README.zh-CN.md", out: "web/about.zh.html", lang: "zh-Hans", title: "关于 · 风格调色板移植工具",
     back: "返回转换页面", other: "English", otherHref: "about.html" },
 ];
+// Shared with the profile README (github.com/nathanatgit/nathanatgit), so it is hotlinked.
+const BANNER = "https://raw.githubusercontent.com/nathanatgit/nathanatgit/main/assets/shalielie.png";
 const RENAMED = { "README.md": "about.html", "README.zh-CN.md": "about.zh.html" };
 
 const token = process.env.GITHUB_TOKEN;
@@ -77,12 +79,14 @@ const page = (p, body) => `<!doctype html>
                "Microsoft YaHei UI", sans-serif; }
   .bar a { color: var(--link); text-decoration: none; }
   .bar a:hover { text-decoration: underline; }
+  .markdown-body .banner { display: block; background: none; width: 100%; height: auto; aspect-ratio: 2560 / 800; margin-bottom: 8px; }
   .markdown-body { box-sizing: border-box; max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
 </style>
 </head>
 <body>
 <nav class="bar"><a href="./">← ${p.back}</a><a href="${p.otherHref}">${p.other}</a></nav>
 <article class="markdown-body">
+<img class="banner" src="${BANNER}" width="2560" height="800" alt="Shalielie">
 ${body}
 </article>
 </body>
