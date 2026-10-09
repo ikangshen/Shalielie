@@ -29,6 +29,7 @@
 //   drop.*       the drop area: the action only, no instructions
 //   tip.*        the Photo Library tip under the drop area
 //   opt.quality  the analysis switch
+//   more         shown instead of the tip and switch once there are results; unfolds them
 //   st.*         status text on a finished row
 //   err.*        failures a visitor can see
 //   btn.*        buttons on a finished row
@@ -58,6 +59,7 @@ export const STRINGS = {
       + "bottom-left corner → <b>Options</b> → <b>Format</b> → <b>Current</b>. This sends the "
       + "original HEIC instead of a converted JPEG. If a photo is still rejected, choose "
       + "<b>Browse</b> and pick it from Files.",
+    "more": "Tips and options",
     "opt.quality": "Analyze each photo so the style data matches its tones. Downloads a small "
       + "image decoder on first use. Can be slow on iPhone; turn it off if the page freezes.",
 
@@ -140,6 +142,7 @@ export const STRINGS = {
     "tip.body": "在支持的 iOS 版本中，勾选照片后点按左下角的 <b>•••</b> → <b>选项</b> → "
       + "<b>格式</b> → <b>当前</b>，即可上传 HEIC 原图，而不是转换后的 JPEG。若仍被拒绝，"
       + "请改选<b>浏览</b>，从“文件”中选取。",
+    "more": "提示和选项",
     "opt.quality": "分析每张照片，使风格数据与照片的影调相匹配。首次使用时会下载一个小型图像解码组件。"
       + "在 iPhone 上可能较慢；若页面卡住，请关闭此项。",
 

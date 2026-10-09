@@ -135,6 +135,13 @@
   #quality:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   /* Results: one line per file name, buttons below it on narrow screens */
+  /* Once results show, the tip and switch fold away so a phone shows the results unscrolled */
+  #more { display: none; align-self: flex-end; margin: -.4rem 0 -.3rem; padding: .2rem 0; border: 0;
+          background: none; font: inherit; font-size: .82rem; font-weight: 600; color: var(--accent-text);
+          cursor: pointer; }
+  #more:hover { text-decoration: underline; }
+  main.folded #more { display: block; }
+  main.folded .tip, main.folded .opts { display: none; }
   #list { display: flex; flex-direction: column; gap: .5rem; }
   #list:empty { display: none; }
   .row {
@@ -236,6 +243,8 @@
   </div>
   <input type="file" id="file" multiple
          accept="image/heic,image/heif,.heic,.heif">
+
+  <button id="more" type="button" data-i18n="more"></button>
 
   <div class="tip" role="note">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2V16h5v-.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3Z"/></svg>

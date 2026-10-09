@@ -65,6 +65,8 @@ function row(name) {
   el.querySelector(".name").textContent = name;
   el.querySelector(".name").title = name;
   list.appendChild(el);
+  // Keep the newest row on screen as its status and buttons fill in.
+  new ResizeObserver(() => el.scrollIntoView({ block: "nearest", behavior: "smooth" })).observe(el);
   return {
     set(text, cls) {
       const s = el.querySelector(".status");
@@ -154,6 +156,7 @@ async function handleFile(file) {
 }
 
 async function handleFiles(files) {
+  if (files.length) document.querySelector("main").classList.add("folded");
   for (const f of files) await handleFile(f);
 }
 
@@ -169,6 +172,8 @@ drop.addEventListener("keydown", (e) => {
   if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fileInput.click(); }
 });
 fileInput.addEventListener("change", () => handleFiles([...fileInput.files]));
+
+$("more").addEventListener("click", () => document.querySelector("main").classList.remove("folded"));
 
 $("lang").addEventListener("click", () => {
   lang = lang === "zh" ? "en" : "zh";
