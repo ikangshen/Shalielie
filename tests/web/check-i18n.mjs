@@ -13,7 +13,7 @@ const ROOT = new URL("../../", import.meta.url).pathname.replace(/^\/([A-Za-z]:)
 const html = readFileSync(`${ROOT}web/index.html`, "utf8");
 const app = readFileSync(`${ROOT}web/app.js`, "utf8");
 
-const usedInHtml = new Set([...html.matchAll(/data-i18n="([^"]+)"/g)].map((m) => m[1]));
+const usedInHtml = new Set([...html.matchAll(/data-i18n(?:-href)?="([^"]+)"/g)].map((m) => m[1]));
 // Keys reach T() through ternaries and variables as well as literal calls, so match
 // any quoted token shaped like a key rather than only T("...").
 const usedInJs = new Set(

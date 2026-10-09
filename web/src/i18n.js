@@ -20,6 +20,7 @@
 //
 // WHERE EACH KEY APPEARS (top of the page to the bottom)
 //   lang.name    the switch button; it names the language you switch TO
+//   about.*      the README link next to it; .href is the README in that language
 //   meta.title   browser tab and the big heading
 //   app.tagline  the line under the heading
 //   h.notice n.* "Before you start": the notices, shown first
@@ -38,6 +39,8 @@
 export const STRINGS = {
   en: {
     "lang.name": "中文",
+    "about.name": "About this page",
+    "about.href": "https://github.com/nathanatgit/Shalielie#readme",
     "meta.title": "Photographic Styles Palette Port",
     "app.tagline": "The Photographic Styles palette for photos from older iPhones",
 
@@ -120,6 +123,8 @@ export const STRINGS = {
 
   zh: {
     "lang.name": "English",
+    "about.name": "关于此页面",
+    "about.href": "https://github.com/nathanatgit/Shalielie/blob/master/README.zh-CN.md",
     "meta.title": "风格调色板移植工具",
     "app.tagline": "让旧款 iPhone 拍摄的照片也能使用摄影风格调色板",
 
@@ -215,4 +220,6 @@ export function applyLanguage(lang) {
   document.title = t(lang, "meta.title");
   for (const el of document.querySelectorAll("[data-i18n]"))
     el.innerHTML = t(lang, el.dataset.i18n);
+  for (const el of document.querySelectorAll("[data-i18n-href]"))
+    el.href = t(lang, el.dataset.i18nHref);
 }
