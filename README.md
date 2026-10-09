@@ -4,6 +4,22 @@
 
 Current version: v0.6.3
 
+### Cloudflare Workers (Fork addition)
+
+This fork adds a Cloudflare Workers endpoint for using Shalielie with iOS Shortcuts, without a local server. It reuses the original JavaScript HEIC processing code.
+
+Deploy from the repository root (requires Node.js and a Cloudflare account):
+
+```bash
+cd worker
+npm install
+npx wrangler login
+npx wrangler deploy
+npx wrangler secret put API_TOKEN
+```
+
+In iOS Shortcuts, use **Get Contents of URL** with `POST` to `https://YOUR-WORKER.workers.dev/patch`. Set the `Authorization` header to `Bearer YOUR_API_TOKEN`. Set **Request Body** to **Form** and add a `photo` field of type **File**, using the selected HEIC file. Do not set `Content-Type` manually. Keep the API token private.
+
 This is an experimental tool that takes a HEIC from an iPhone **older than the iPhone 16**
 (iPhone 15, 14, 13 … — any model whose photos match a supported tile layout) and adds the
 metadata an iPhone 16/17 photo carries, so that Apple Photos offers the **Photographic Styles**

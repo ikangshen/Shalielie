@@ -4,6 +4,22 @@
 
 当前版本：v0.6.3
 
+### Cloudflare Workers（本 Fork 新增）
+
+本 Fork 新增 Cloudflare Workers 接口，可通过 iOS 快捷指令远程处理 HEIC 照片，无需运行本地服务器。照片处理复用原项目的 JavaScript 代码。
+
+在项目根目录执行（需安装 Node.js，并拥有 Cloudflare 账号）：
+
+```bash
+cd worker
+npm install
+npx wrangler login
+npx wrangler deploy
+npx wrangler secret put API_TOKEN
+```
+
+iOS 快捷指令中使用「获取 URL 内容」，以 `POST` 请求 `https://YOUR-WORKER.workers.dev/patch`。请求头 `Authorization` 设为 `Bearer YOUR_API_TOKEN`，请求正文选择 **Form（表单）**，添加名为 `photo`、类型为 **File（文件）** 的字段，值为选中的 HEIC 文件。不要手动设置 `Content-Type`。请妥善保管 API Token。
+
 注意这是一个实验性工具：它为 **iPhone 16 之前**的 iPhone（iPhone 15、14、13 …… 只要照片符合受支持的
 tile 布局即可）拍摄的 HEIC 照片补上 iPhone 16/17 照片所携带的元数据，让编辑照片时，呈现 **摄影风格**（即 Apple 官方所称的“调色板”）。
 
