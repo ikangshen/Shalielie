@@ -20,7 +20,8 @@
 //
 // WHERE EACH KEY APPEARS (top of the page to the bottom)
 //   lang.name    the switch button; it names the language you switch TO
-//   about.*      the README link next to it; .href is the README in that language
+//   about.*      the README link next to it; .href is the README page in that language,
+//                rendered at deploy by tools/render-about.mjs
 //   meta.title   browser tab and the big heading
 //   app.tagline  the line under the heading
 //   h.notice n.* "Before you start": the notices, shown first
@@ -40,7 +41,7 @@ export const STRINGS = {
   en: {
     "lang.name": "中文",
     "about.name": "About this page",
-    "about.href": "https://github.com/nathanatgit/Shalielie#readme",
+    "about.href": "about.html",
     "meta.title": "Photographic Styles Palette Port",
     "app.tagline": "The Photographic Styles palette for photos from older iPhones",
 
@@ -124,7 +125,7 @@ export const STRINGS = {
   zh: {
     "lang.name": "English",
     "about.name": "关于此页面",
-    "about.href": "https://github.com/nathanatgit/Shalielie/blob/master/README.zh-CN.md",
+    "about.href": "about.zh.html",
     "meta.title": "风格调色板移植工具",
     "app.tagline": "让旧款 iPhone 拍摄的照片也能使用摄影风格调色板",
 

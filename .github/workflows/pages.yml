@@ -5,6 +5,9 @@ on:
     branches: [main, master]
     paths:
       - "web/**"
+      - "README.md"
+      - "README.zh-CN.md"
+      - "tools/render-about.mjs"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -31,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      # The site is static: no build step, nothing to install. Guard instead
+      # The site is static; the only build step renders the about pages (below). Guard
       # against publishing a personal photo, omitting a donor profile, or
       # shipping stale PWA metadata/offline asset paths.
       # The parentheses matter: without them -print binds to the last -iname only.
@@ -52,6 +55,12 @@ jobs:
 
       - name: Check the PWA is internally consistent
         run: node tests/web/check-pwa.mjs
+
+      # "About this page": the READMEs rendered by GitHub's Markdown API, not committed.
+      - name: Render the about pages
+        run: node tools/render-about.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       # enablement turns Pages on if it is not already, so a fresh clone of this
       # repo deploys without anyone visiting the settings page first.

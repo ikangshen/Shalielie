@@ -88,6 +88,8 @@ if (!shellMatch) {
     walk(WEB)
       .filter((path) => /\.(?:html|js|json|png|webmanifest|zip)$/.test(path))
       .filter((path) => normalize(path) !== normalize(join(WEB, "sw.js")))
+      // Rendered at deploy by tools/render-about.mjs; cached when visited, not precached.
+      .filter((path) => !/[\\/]about(?:\.zh)?\.html$/.test(path))
       .map((path) => `./${normalize(path).slice(normalize(WEB).length + 1).replaceAll("\\", "/")}`)
   );
   for (const asset of shouldCache) {

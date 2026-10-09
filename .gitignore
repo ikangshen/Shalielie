@@ -79,3 +79,7 @@ desktop.ini
 
 # Cached libheif bundle for tests/web/libheif-api.mjs (1.8 MB, refetched on demand).
 tests/web/.cache/
+
+# Rendered at deploy by tools/render-about.mjs
+web/about.html
+web/about.zh.html
