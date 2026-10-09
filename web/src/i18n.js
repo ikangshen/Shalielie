@@ -7,7 +7,7 @@
 //   Run `node tests/web/check-i18n.mjs` afterwards; it catches exactly those two
 //   mistakes. Preview with `python -m http.server -d web 8000`, then reload.
 //
-//   A few tags are allowed inside a string — <b>, <br>, <code> — because the
+//   A few tags are allowed inside a string — <b>, <br>, <code>, <a> — because the
 //   values are inserted as HTML. Do not paste anything untrusted in here.
 //
 // STYLE
@@ -70,7 +70,7 @@ export const STRINGS = {
     "err.unsupported": "This HEIC isn’t supported yet.",
     "err.hastexture": "This photo already has Texture and Grain. Nothing to do.",
     "err.nothumb": "No embedded thumbnail, which the browser can’t create. Use the "
-      + "command-line tool for this photo.",
+      + '<a href="https://github.com/nathanatgit/Shalielie/releases/latest" target="_blank" rel="noopener">command-line tool</a> on a Windows PC or Mac for this photo.',
 
     "btn.save": "Save to Photos",
     "btn.download": "Download",
@@ -108,7 +108,8 @@ export const STRINGS = {
       + "Use the Photo Library tip above, or in Photos tap <b>Share → Save to Files</b> and "
       + "choose it with <b>Browse</b>.",
     "t.2": "<b>“No embedded thumbnail”</b>: common for copies re-saved by iOS. Use the "
-      + "command-line tool, which can create the thumbnail.",
+      + '<a href="https://github.com/nathanatgit/Shalielie/releases/latest" target="_blank" rel="noopener">command-line tool</a>, which can create the thumbnail. It runs on a Windows PC '
+      + "or Mac, not on iPhone.",
     "t.3": "<b>“This HEIC isn’t supported yet”</b>: screenshots, copies edited or exported by "
       + "other apps, and photo layouts the tool does not support yet.",
     "t.4": "<b>The page freezes or reloads</b>: turn off the analysis switch above and try "
@@ -148,7 +149,8 @@ export const STRINGS = {
     "err.notheic": "不是 HEIC 照片。可能已被 iOS 转换，请参阅“遇到问题”。",
     "err.unsupported": "暂不支持此 HEIC 文件。",
     "err.hastexture": "此照片已带有质感与颗粒，无需处理。",
-    "err.nothumb": "没有内嵌缩略图，网页版无法生成。请改用命令行工具处理这张照片。",
+    "err.nothumb": "没有内嵌缩略图，网页版无法生成。请在 Windows 电脑或 Mac 上改用"
+      + '<a href="https://github.com/nathanatgit/Shalielie/releases/latest" target="_blank" rel="noopener">命令行工具</a>处理这张照片。',
 
     "btn.save": "存储到“照片”",
     "btn.download": "下载",
@@ -180,7 +182,9 @@ export const STRINGS = {
     "h.trouble": "遇到问题",
     "t.1": "<b>“不是 HEIC 照片”</b>：选取时 iOS 把照片转换成了 JPEG。请按上方“照片图库”提示操作，"
       + "或在“照片”App 中点按<b>共享 → 存储到“文件”</b>，再通过<b>浏览</b>选取。",
-    "t.2": "<b>“没有内嵌缩略图”</b>：常见于经 iOS 重新存储的副本。请改用命令行工具，它可以生成缩略图。",
+    "t.2": "<b>“没有内嵌缩略图”</b>：常见于经 iOS 重新存储的副本。请改用"
+      + '<a href="https://github.com/nathanatgit/Shalielie/releases/latest" target="_blank" rel="noopener">命令行工具</a>，它可以生成缩略图。命令行工具需要在 Windows 电脑或 Mac 上运行，'
+      + "无法在 iPhone 上使用。",
     "t.3": "<b>“暂不支持此 HEIC 文件”</b>：截屏、经其他 App 编辑或导出的副本，以及暂不支持的照片布局。",
     "t.4": "<b>页面卡住或自动刷新</b>：关闭上方的分析开关后重试。",
 

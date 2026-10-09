@@ -68,7 +68,8 @@ function row(name) {
   return {
     set(text, cls) {
       const s = el.querySelector(".status");
-      s.textContent = text;
+      // Only T() strings, which may hold a link; the span keeps it inline in the flex row.
+      s.innerHTML = `<span>${text}</span>`;
       s.className = `status ${cls || ""}`;
     },
     link(blob, filename) {
